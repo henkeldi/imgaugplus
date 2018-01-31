@@ -1,0 +1,14 @@
+
+
+Sequential([
+	Sometimes(0.3, Crop(percent=(0, 0.4))),
+	Sometimes(0.3, Fliplr(0.9)),
+	Sometimes(0.3, Flipud(0.3)),
+	Sometimes(0.3, Sharpen(0.3)),
+  	Sometimes(0.3, GaussianBlur(sigma=(0, 1.0))),
+  	Sometimes(0.3, AdditiveGaussianNoise(loc=0, scale=(0.0, 0.2), per_channel=0.5)),
+  	Sometimes(0.3, Add((-50, 50), per_channel=0.1)),
+  	Sometimes(0.3, Multiply((0.4, 1.3), per_channel=0.1)),
+  	Sometimes(0.3, Multiply((0.4, 1.3))),
+  	Sometimes(0.3, ContrastNormalization((0.5, 2.0), per_channel=0.1))
+], random_order=True)
